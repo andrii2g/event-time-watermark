@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/EventTimeWatermark.Cli/EventTimeWatermark.Cli.csproj" />
+    <Project Path="src/EventTimeWatermark.Core/EventTimeWatermark.Core.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/EventTimeWatermark.Tests/EventTimeWatermark.Tests.csproj" />
+  </Folder>
+</Solution>
