@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 1400 665" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>idle-resume: aggregate comparison</title>
+  <style>text{font-family:Segoe UI,Arial,sans-serif;font-size:13px;fill:#dbe6f5}.title{font-size:24px;font-weight:600}.label{font-size:16px;font-weight:600}</style>
+  <rect width="1400" height="665" fill="#101827" />
+  <text x="30" y="40" class="title">Window totals — idle-resume</text>
+  <text x="30" y="68" class="">Cells show sum / count. Red = differs from complete event-time reference. Missing output is shown as zero.</text>
+  <text x="30" y="110" class="label">ProcessingTime</text>
+  <text x="30" y="140" class="">Window (seconds)</text>
+  <text x="300" y="140" class="">Reference</text>
+  <text x="580" y="140" class="">First published</text>
+  <text x="900" y="140" class="">Latest published</text>
+  <text x="30" y="170" class="">[0, 10)</text>
+  <text x="300" y="170" class="">23 / 4</text>
+  <text x="580" y="170" class="" style="fill:#fda4af">14 / 3</text>
+  <text x="900" y="170" class="" style="fill:#fda4af">14 / 3</text>
+  <text x="30" y="200" class="">[10, 20)</text>
+  <text x="300" y="200" class="">7 / 2</text>
+  <text x="580" y="200" class="">7 / 2</text>
+  <text x="900" y="200" class="">7 / 2</text>
+  <text x="30" y="230" class="">[20, 30)</text>
+  <text x="300" y="230" class="">15 / 3</text>
+  <text x="580" y="230" class="" style="fill:#fda4af">24 / 4</text>
+  <text x="900" y="230" class="" style="fill:#fda4af">24 / 4</text>
+  <text x="30" y="290" class="label">SharedWatermark</text>
+  <text x="30" y="320" class="">Window (seconds)</text>
+  <text x="300" y="320" class="">Reference</text>
+  <text x="580" y="320" class="">First published</text>
+  <text x="900" y="320" class="">Latest published</text>
+  <text x="30" y="350" class="">[0, 10)</text>
+  <text x="300" y="350" class="">23 / 4</text>
+  <text x="580" y="350" class="" style="fill:#fda4af">14 / 3</text>
+  <text x="900" y="350" class="">23 / 4</text>
+  <text x="30" y="380" class="">[10, 20)</text>
+  <text x="300" y="380" class="">7 / 2</text>
+  <text x="580" y="380" class="">7 / 2</text>
+  <text x="900" y="380" class="">7 / 2</text>
+  <text x="30" y="410" class="">[20, 30)</text>
+  <text x="300" y="410" class="">15 / 3</text>
+  <text x="580" y="410" class="">15 / 3</text>
+  <text x="900" y="410" class="">15 / 3</text>
+  <text x="30" y="470" class="label">PartitionWatermarks</text>
+  <text x="30" y="500" class="">Window (seconds)</text>
+  <text x="300" y="500" class="">Reference</text>
+  <text x="580" y="500" class="">First published</text>
+  <text x="900" y="500" class="">Latest published</text>
+  <text x="30" y="530" class="">[0, 10)</text>
+  <text x="300" y="530" class="">23 / 4</text>
+  <text x="580" y="530" class="" style="fill:#fda4af">14 / 3</text>
+  <text x="900" y="530" class="">23 / 4</text>
+  <text x="30" y="560" class="">[10, 20)</text>
+  <text x="300" y="560" class="">7 / 2</text>
+  <text x="580" y="560" class="">7 / 2</text>
+  <text x="900" y="560" class="">7 / 2</text>
+  <text x="30" y="590" class="">[20, 30)</text>
+  <text x="300" y="590" class="">15 / 3</text>
+  <text x="580" y="590" class="">15 / 3</text>
+  <text x="900" y="590" class="">15 / 3</text>
+</svg>

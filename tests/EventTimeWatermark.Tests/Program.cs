@@ -70,4 +70,54 @@ foreach (var policy in Enum.GetValues<LatePolicy>())
     var exact = Simulator.Run(scenario, new(strategy == Strategy.ProcessingTime ? Strategy.SharedWatermark : strategy, 100_000));
     Check(exact.FinalAccuracy.MismatchedWindows == 0, "Sufficient delay matches independent reference");
 }
+var frozen = Simulator.Run(new("all-idle", 2, [new(1, 0, 1, 1, 1), new(2, 1, 2, 2, 1)]),
+    new(Strategy.PartitionWatermarks, 0, IdleTimeoutMs: 10));
+Check(!frozen.Trace.Any(t => t.Kind == "watermark" && t.TimeMs >= 12), "All idle freezes progress until explicit completion");
+var tied = new Scenario("tied", 2, [new(2, 1, 1, 20_000, 2), new(1, 0, 20_000, 20_000, 1)]);
+Check(Simulator.Run(tied, new(Strategy.SharedWatermark, 0)).Metrics.LateEvents == 0, "Equal-time batch precedes watermark advancement");
+var behindOpen = new Scenario("behind-open", 2, [new(1, 0, 5000, 5000, 1), new(2, 1, 4000, 6000, 2)]);
+var behindResult = Simulator.Run(behindOpen, new(Strategy.SharedWatermark, 0));
+Check(behindResult.Metrics.BehindWatermark == 1 && behindResult.Metrics.LateEvents == 0, "Behind watermark does not imply closed window");
+var timer = Simulator.Run(new("timer", 2, [new(1, 0, 1, 1, 1), new(2, 1, 35_000, 35_000, 2)]), new(Strategy.ProcessingTime));
+Check(timer.Emissions[0].TimeMs == 10_000, "Processing timer fires during silence");
+void Reject(Action action, string message)
+{
+    bool rejected = false;
+    try { action(); } catch (ArgumentException) { rejected = true; }
+    Check(rejected, message);
+}
+Reject(() => (boundary with { Events = [new(1, 0, 2, 1, 1)] }).Schedule(), "Reject arrival before event time");
+Reject(() => (boundary with { Events = [new(1, 0, 1, 1, 1), new(1, 1, 2, 2, 1)] }).Schedule(), "Reject duplicate IDs");
+Reject(() => Simulator.Run(boundary, new(Strategy.SharedWatermark, -1)), "Reject negative delay");
+Reject(() => Simulator.Run(boundary, new(Strategy.PartitionWatermarks, IdleTimeoutMs: 0)), "Reject zero idle timeout");
+var reportScenario = Scenarios.Create("idle-resume");
+var reportRuns = Enum.GetValues<Strategy>().Select(s => Simulator.Run(reportScenario, new(s, 3000, LatePolicy.Correct, 10_000, 8000))).ToArray();
+var firstSvg = Reports.Timeline(reportScenario, reportRuns).ToString();
+Check(System.Xml.Linq.XDocument.Parse(firstSvg).Root!.Name.LocalName == "svg", "Timeline parses as SVG XML");
+Check(!firstSvg.Contains("NaN") && !firstSvg.Contains("Infinity"), "Finite SVG coordinates");
+var originalCulture = System.Globalization.CultureInfo.CurrentCulture;
+try
+{
+    System.Globalization.CultureInfo.CurrentCulture = new("fr-FR");
+    Check(firstSvg == Reports.Timeline(reportScenario, reportRuns).ToString(), "Culture-independent SVG");
+}
+finally { System.Globalization.CultureInfo.CurrentCulture = originalCulture; }
+string temporary = Path.Combine(Path.GetTempPath(), "watermark-tests-" + Guid.NewGuid().ToString("N"));
+try
+{
+    Reports.Write(temporary, reportScenario, reportRuns);
+    var snapshots = Directory.GetFiles(temporary).ToDictionary(path => Path.GetFileName(path)!, File.ReadAllText);
+    Reports.Write(temporary, reportScenario, Enum.GetValues<Strategy>().Select(s => Simulator.Run(reportScenario, new(s, 3000, LatePolicy.Correct, 10_000, 8000))).ToArray());
+    foreach (var (name, contents) in snapshots) Check(File.ReadAllText(Path.Combine(temporary, name!)) == contents, $"Byte-stable replay: {name}");
+    using var json = System.Text.Json.JsonDocument.Parse(File.ReadAllText(Path.Combine(temporary, "report.json")));
+    Check(json.RootElement.GetProperty("Runs").GetArrayLength() == 3, "JSON contains all strategies");
+}
+finally
+{
+    if (Directory.Exists(temporary))
+    {
+        foreach (string path in Directory.GetFiles(temporary)) File.Delete(path);
+        Directory.Delete(temporary);
+    }
+}
 Console.WriteLine($"Passed {assertions} assertions.");

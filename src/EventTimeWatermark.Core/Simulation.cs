@@ -46,6 +46,8 @@ public static class Simulator
     {
         if (settings.WatermarkDelayMs < 0 || settings.CorrectionPeriodMs < 0 || settings.IdleTimeoutMs <= 0)
             throw new ArgumentException("Delays must be nonnegative; idle timeout must be positive.");
+        if (!Enum.IsDefined(settings.Strategy) || !Enum.IsDefined(settings.LatePolicy))
+            throw new ArgumentException("Unknown strategy or late policy.");
         var input = scenario.Schedule();
         var windows = new SortedDictionary<long, WindowState>();
         var emissions = new List<Emission>();
@@ -187,6 +189,7 @@ public static class Simulator
         // Explicit common source-completion horizon; no inferred early completion
         // of a temporarily quiet partition using future dataset knowledge.
         now = horizon;
+        for (int p = 0; p < scenario.PartitionCount; p++) trace.Add(new(now, "source-complete", PartitionId: p));
         Advance(long.MaxValue);
         var reference = Reference.Compute(scenario);
         return new(settings, metrics, Compare(reference, emissions, false), Compare(reference, emissions, true),

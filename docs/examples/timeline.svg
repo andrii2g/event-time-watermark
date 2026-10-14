@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 1400 1535" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>idle-resume: event arrival and watermark timelines</title>
+  <style>text{font-family:Segoe UI,Arial,sans-serif;font-size:13px;fill:#dbe6f5}.title{font-size:24px;font-weight:600}.label{font-size:16px;font-weight:600}</style>
+  <rect width="1400" height="1535" fill="#101827" />
+  <text x="30" y="38" class="title">Event time / arrival time — idle-resume</text>
+  <text x="30" y="65" class="">Circle = event timestamp; square = arrival; connecting line = delay. Partition colors: blue / orange / purple.</text>
+  <text x="30" y="88" class="">Watermarks: x = virtual processing time, y = event-time progress. Green = global. Shading = idle partition.</text>
+  <text x="30" y="130" class="label">ProcessingTime | delay 3000ms | Correct</text>
+  <text x="30" y="175" class="">Partition 0</text>
+  <line x1="170" y1="170" x2="1330" y2="170" stroke="#334155" stroke-width="1" />
+  <g>
+    <title>Event 1: event=1000ms, arrival=1000ms, value=5</title>
+    <line x1="208.667" y1="165" x2="208.667" y2="175" stroke="#60a5fa" stroke-width="1" />
+    <circle cx="208.667" cy="165" r="3" fill="#60a5fa" />
+    <rect x="205.667" y="172" width="6" height="6" fill="#60a5fa" />
+  </g>
+  <g>
+    <title>Event 4: event=15000ms, arrival=15000ms, value=3</title>
+    <line x1="750" y1="165" x2="750" y2="175" stroke="#60a5fa" stroke-width="1" />
+    <circle cx="750" cy="165" r="3" fill="#60a5fa" />
+    <rect x="747" y="172" width="6" height="6" fill="#60a5fa" />
+  </g>
+  <g>
+    <title>Event 7: event=25000ms, arrival=25000ms, value=6</title>
+    <line x1="1136.667" y1="165" x2="1136.667" y2="175" stroke="#60a5fa" stroke-width="1" />
+    <circle cx="1136.667" cy="165" r="3" fill="#60a5fa" />
+    <rect x="1133.667" y="172" width="6" height="6" fill="#60a5fa" />
+  </g>
+  <text x="30" y="211" class="">Partition 1</text>
+  <line x1="170" y1="206" x2="1330" y2="206" stroke="#334155" stroke-width="1" />
+  <g>
+    <title>Event 2: event=2000ms, arrival=2000ms, value=7</title>
+    <line x1="247.333" y1="201" x2="247.333" y2="211" stroke="#fbbf24" stroke-width="1" />
+    <circle cx="247.333" cy="201" r="3" fill="#fbbf24" />
+    <rect x="244.333" y="208" width="6" height="6" fill="#fbbf24" />
+  </g>
+  <g>
+    <title>Event 5: event=16000ms, arrival=16000ms, value=4</title>
+    <line x1="788.667" y1="201" x2="788.667" y2="211" stroke="#fbbf24" stroke-width="1" />
+    <circle cx="788.667" cy="201" r="3" fill="#fbbf24" />
+    <rect x="785.667" y="208" width="6" height="6" fill="#fbbf24" />
+  </g>
+  <g>
+    <title>Event 8: event=26000ms, arrival=26000ms, value=1</title>
+    <line x1="1175.333" y1="201" x2="1175.333" y2="211" stroke="#fbbf24" stroke-width="1" />
+    <circle cx="1175.333" cy="201" r="3" fill="#fbbf24" />
+    <rect x="1172.333" y="208" width="6" height="6" fill="#fbbf24" />
+  </g>
+  <text x="30" y="247" class="">Partition 2</text>
+  <line x1="170" y1="242" x2="1330" y2="242" stroke="#334155" stroke-width="1" />
+  <g>
+    <title>Event 3: event=3000ms, arrival=3000ms, value=2</title>
+    <line x1="286" y1="237" x2="286" y2="247" stroke="#c084fc" stroke-width="1" />
+    <circle cx="286" cy="237" r="3" fill="#c084fc" />
+    <rect x="283" y="244" width="6" height="6" fill="#c084fc" />
+  </g>
+  <g>
+    <title>Event 6: event=8000ms, arrival=22000ms, value=9</title>
+    <line x1="479.333" y1="237" x2="1020.667" y2="247" stroke="#c084fc" stroke-width="1" />
+    <circle cx="479.333" cy="237" r="3" fill="#c084fc" />
+    <rect x="1017.667" y="244" width="6" height="6" fill="#c084fc" />
+  </g>
+  <g>
+    <title>Event 9: event=27000ms, arrival=27000ms, value=8</title>
+    <line x1="1214" y1="237" x2="1214" y2="247" stroke="#c084fc" stroke-width="1" />
+    <circle cx="1214" cy="237" r="3" fill="#c084fc" />
+    <rect x="1211" y="244" width="6" height="6" fill="#c084fc" />
+  </g>
+  <text x="30" y="307" class="">Clock progress</text>
+  <line x1="170" y1="295" x2="170" y2="470" stroke="#29384c" stroke-width="1" />
+  <text x="162" y="488" class="">0s</text>
+  <line x1="170" y1="470" x2="1330" y2="470" stroke="#29384c" stroke-width="1" />
+  <text x="125" y="474" class="">0s</text>
+  <line x1="556.667" y1="295" x2="556.667" y2="470" stroke="#29384c" stroke-width="1" />
+  <text x="548.667" y="488" class="">10s</text>
+  <line x1="170" y1="411.667" x2="1330" y2="411.667" stroke="#29384c" stroke-width="1" />
+  <text x="125" y="415.667" class="">10s</text>
+  <line x1="943.333" y1="295" x2="943.333" y2="470" stroke="#29384c" stroke-width="1" />
+  <text x="935.333" y="488" class="">20s</text>
+  <line x1="170" y1="353.333" x2="1330" y2="353.333" stroke="#29384c" stroke-width="1" />
+  <text x="125" y="357.333" class="">20s</text>
+  <line x1="1330" y1="295" x2="1330" y2="470" stroke="#29384c" stroke-width="1" />
+  <text x="1322" y="488" class="">30s</text>
+  <line x1="170" y1="295" x2="1330" y2="295" stroke="#29384c" stroke-width="1" />
+  <text x="125" y="299" class="">30s</text>
+  <path d="M 556.667 411.667 H 943.333 V 353.333 H 1330" fill="none" stroke="#34d399" stroke-width="3" />
+  <text x="30" y="530" class="">Window output</text>
+  <line x1="170" y1="525" x2="1330" y2="525" stroke="#334155" stroke-width="1" />
+  <line x1="556.667" y1="510" x2="556.667" y2="535" stroke="#34d399" stroke-width="3">
+    <title>[0,10)s v1: sum=14, count=3, emitted at 10000ms</title>
+  </line>
+  <line x1="943.333" y1="510" x2="943.333" y2="535" stroke="#34d399" stroke-width="3">
+    <title>[10,20)s v1: sum=7, count=2, emitted at 20000ms</title>
+  </line>
+  <line x1="1330" y1="510" x2="1330" y2="535" stroke="#34d399" stroke-width="3">
+    <title>[20,30)s v1: sum=24, count=4, emitted at 30000ms</title>
+  </line>
+  <text x="170" y="565" class="">Green = first emission; pink = late update. Completion at 30s flushes remaining state (terminal watermark omitted).</text>
+  <text x="30" y="600" class="label">SharedWatermark | delay 3000ms | Correct</text>
+  <text x="30" y="645" class="">Partition 0</text>
+  <line x1="170" y1="640" x2="1330" y2="640" stroke="#334155" stroke-width="1" />
+  <g>
+    <title>Event 1: event=1000ms, arrival=1000ms, value=5</title>
+    <line x1="208.667" y1="635" x2="208.667" y2="645" stroke="#60a5fa" stroke-width="1" />
+    <circle cx="208.667" cy="635" r="3" fill="#60a5fa" />
+    <rect x="205.667" y="642" width="6" height="6" fill="#60a5fa" />
+  </g>
+  <g>
+    <title>Event 4: event=15000ms, arrival=15000ms, value=3</title>
+    <line x1="750" y1="635" x2="750" y2="645" stroke="#60a5fa" stroke-width="1" />
+    <circle cx="750" cy="635" r="3" fill="#60a5fa" />
+    <rect x="747" y="642" width="6" height="6" fill="#60a5fa" />
+  </g>
+  <g>
+    <title>Event 7: event=25000ms, arrival=25000ms, value=6</title>
+    <line x1="1136.667" y1="635" x2="1136.667" y2="645" stroke="#60a5fa" stroke-width="1" />
+    <circle cx="1136.667" cy="635" r="3" fill="#60a5fa" />
+    <rect x="1133.667" y="642" width="6" height="6" fill="#60a5fa" />
+  </g>
+  <text x="30" y="681" class="">Partition 1</text>
+  <line x1="170" y1="676" x2="1330" y2="676" stroke="#334155" stroke-width="1" />
+  <g>
+    <title>Event 2: event=2000ms, arrival=2000ms, value=7</title>
+    <line x1="247.333" y1="671" x2="247.333" y2="681" stroke="#fbbf24" stroke-width="1" />
+    <circle cx="247.333" cy="671" r="3" fill="#fbbf24" />
+    <rect x="244.333" y="678" width="6" height="6" fill="#fbbf24" />
+  </g>
+  <g>
+    <title>Event 5: event=16000ms, arrival=16000ms, value=4</title>
+    <line x1="788.667" y1="671" x2="788.667" y2="681" stroke="#fbbf24" stroke-width="1" />
+    <circle cx="788.667" cy="671" r="3" fill="#fbbf24" />
+    <rect x="785.667" y="678" width="6" height="6" fill="#fbbf24" />
+  </g>
+  <g>
+    <title>Event 8: event=26000ms, arrival=26000ms, value=1</title>
+    <line x1="1175.333" y1="671" x2="1175.333" y2="681" stroke="#fbbf24" stroke-width="1" />
+    <circle cx="1175.333" cy="671" r="3" fill="#fbbf24" />
+    <rect x="1172.333" y="678" width="6" height="6" fill="#fbbf24" />
+  </g>
+  <text x="30" y="717" class="">Partition 2</text>
+  <line x1="170" y1="712" x2="1330" y2="712" stroke="#334155" stroke-width="1" />
+  <g>
+    <title>Event 3: event=3000ms, arrival=3000ms, value=2</title>
+    <line x1="286" y1="707" x2="286" y2="717" stroke="#c084fc" stroke-width="1" />
+    <circle cx="286" cy="707" r="3" fill="#c084fc" />
+    <rect x="283" y="714" width="6" height="6" fill="#c084fc" />
+  </g>
+  <g>
+    <title>Event 6: event=8000ms, arrival=22000ms, value=9</title>
+    <line x1="479.333" y1="707" x2="1020.667" y2="717" stroke="#c084fc" stroke-width="1" />
+    <circle cx="479.333" cy="707" r="3" fill="#c084fc" />
+    <rect x="1017.667" y="714" width="6" height="6" fill="#c084fc" />
+  </g>
+  <g>
+    <title>Event 9: event=27000ms, arrival=27000ms, value=8</title>
+    <line x1="1214" y1="707" x2="1214" y2="717" stroke="#c084fc" stroke-width="1" />
+    <circle cx="1214" cy="707" r="3" fill="#c084fc" />
+    <rect x="1211" y="714" width="6" height="6" fill="#c084fc" />
+  </g>
+  <text x="30" y="777" class="">Watermarks</text>
+  <line x1="170" y1="765" x2="170" y2="940" stroke="#29384c" stroke-width="1" />
+  <text x="162" y="958" class="">0s</text>
+  <line x1="170" y1="940" x2="1330" y2="940" stroke="#29384c" stroke-width="1" />
+  <text x="125" y="944" class="">0s</text>
+  <line x1="556.667" y1="765" x2="556.667" y2="940" stroke="#29384c" stroke-width="1" />
+  <text x="548.667" y="958" class="">10s</text>
+  <line x1="170" y1="881.667" x2="1330" y2="881.667" stroke="#29384c" stroke-width="1" />
+  <text x="125" y="885.667" class="">10s</text>
+  <line x1="943.333" y1="765" x2="943.333" y2="940" stroke="#29384c" stroke-width="1" />
+  <text x="935.333" y="958" class="">20s</text>
+  <line x1="170" y1="823.333" x2="1330" y2="823.333" stroke="#29384c" stroke-width="1" />
+  <text x="125" y="827.333" class="">20s</text>
+  <line x1="1330" y1="765" x2="1330" y2="940" stroke="#29384c" stroke-width="1" />
+  <text x="1322" y="958" class="">30s</text>
+  <line x1="170" y1="765" x2="1330" y2="765" stroke="#29384c" stroke-width="1" />
+  <text x="125" y="769" class="">30s</text>
+  <path d="M 750 870 H 788.667 V 870 H 1020.667 V 870 H 1136.667 V 811.667 H 1175.333 V 811.667 H 1214 V 811.667 H 1330" fill="none" stroke="#60a5fa" stroke-width="1" />
+  <path d="M 788.667 864.167 H 1020.667 V 864.167 H 1136.667 V 864.167 H 1175.333 V 805.833 H 1214 V 805.833 H 1330" fill="none" stroke="#fbbf24" stroke-width="1" />
+  <path d="M 286 940 H 750 V 940 H 788.667 V 940 H 1020.667 V 910.833 H 1136.667 V 910.833 H 1175.333 V 910.833 H 1214 V 800 H 1330" fill="none" stroke="#c084fc" stroke-width="1" />
+  <path d="M 286 940 H 750 V 870 H 788.667 V 864.167 H 1136.667 V 811.667 H 1175.333 V 805.833 H 1214 V 800 H 1330" fill="none" stroke="#34d399" stroke-width="3" />
+  <text x="30" y="1000" class="">Window output</text>
+  <line x1="170" y1="995" x2="1330" y2="995" stroke="#334155" stroke-width="1" />
+  <line x1="750" y1="980" x2="750" y2="1005" stroke="#34d399" stroke-width="3">
+    <title>[0,10)s v1: sum=14, count=3, emitted at 15000ms</title>
+  </line>
+  <line x1="1020.667" y1="980" x2="1020.667" y2="1005" stroke="#f472b6" stroke-width="3">
+    <title>[0,10)s v2: sum=23, count=4, emitted at 22000ms</title>
+  </line>
+  <line x1="1136.667" y1="980" x2="1136.667" y2="1005" stroke="#34d399" stroke-width="3">
+    <title>[10,20)s v1: sum=7, count=2, emitted at 25000ms</title>
+  </line>
+  <line x1="1330" y1="980" x2="1330" y2="1005" stroke="#34d399" stroke-width="3">
+    <title>[20,30)s v1: sum=15, count=3, emitted at 30000ms</title>
+  </line>
+  <text x="170" y="1035" class="">Green = first emission; pink = late update. Completion at 30s flushes remaining state (terminal watermark omitted).</text>
+  <text x="30" y="1070" class="label">PartitionWatermarks | delay 3000ms | Correct</text>
+  <text x="30" y="1115" class="">Partition 0</text>
+  <line x1="170" y1="1110" x2="1330" y2="1110" stroke="#334155" stroke-width="1" />
+  <rect x="518" y="1096" width="232" height="28" fill="#64748b" opacity=".22" />
+  <rect x="1059.333" y="1096" width="77.333" height="28" fill="#64748b" opacity=".22" />
+  <g>
+    <title>Event 1: event=1000ms, arrival=1000ms, value=5</title>
+    <line x1="208.667" y1="1105" x2="208.667" y2="1115" stroke="#60a5fa" stroke-width="1" />
+    <circle cx="208.667" cy="1105" r="3" fill="#60a5fa" />
+    <rect x="205.667" y="1112" width="6" height="6" fill="#60a5fa" />
+  </g>
+  <g>
+    <title>Event 4: event=15000ms, arrival=15000ms, value=3</title>
+    <line x1="750" y1="1105" x2="750" y2="1115" stroke="#60a5fa" stroke-width="1" />
+    <circle cx="750" cy="1105" r="3" fill="#60a5fa" />
+    <rect x="747" y="1112" width="6" height="6" fill="#60a5fa" />
+  </g>
+  <g>
+    <title>Event 7: event=25000ms, arrival=25000ms, value=6</title>
+    <line x1="1136.667" y1="1105" x2="1136.667" y2="1115" stroke="#60a5fa" stroke-width="1" />
+    <circle cx="1136.667" cy="1105" r="3" fill="#60a5fa" />
+    <rect x="1133.667" y="1112" width="6" height="6" fill="#60a5fa" />
+  </g>
+  <text x="30" y="1151" class="">Partition 1</text>
+  <line x1="170" y1="1146" x2="1330" y2="1146" stroke="#334155" stroke-width="1" />
+  <rect x="556.667" y="1132" width="232" height="28" fill="#64748b" opacity=".22" />
+  <rect x="1098" y="1132" width="77.333" height="28" fill="#64748b" opacity=".22" />
+  <g>
+    <title>Event 2: event=2000ms, arrival=2000ms, value=7</title>
+    <line x1="247.333" y1="1141" x2="247.333" y2="1151" stroke="#fbbf24" stroke-width="1" />
+    <circle cx="247.333" cy="1141" r="3" fill="#fbbf24" />
+    <rect x="244.333" y="1148" width="6" height="6" fill="#fbbf24" />
+  </g>
+  <g>
+    <title>Event 5: event=16000ms, arrival=16000ms, value=4</title>
+    <line x1="788.667" y1="1141" x2="788.667" y2="1151" stroke="#fbbf24" stroke-width="1" />
+    <circle cx="788.667" cy="1141" r="3" fill="#fbbf24" />
+    <rect x="785.667" y="1148" width="6" height="6" fill="#fbbf24" />
+  </g>
+  <g>
+    <title>Event 8: event=26000ms, arrival=26000ms, value=1</title>
+    <line x1="1175.333" y1="1141" x2="1175.333" y2="1151" stroke="#fbbf24" stroke-width="1" />
+    <circle cx="1175.333" cy="1141" r="3" fill="#fbbf24" />
+    <rect x="1172.333" y="1148" width="6" height="6" fill="#fbbf24" />
+  </g>
+  <text x="30" y="1187" class="">Partition 2</text>
+  <line x1="170" y1="1182" x2="1330" y2="1182" stroke="#334155" stroke-width="1" />
+  <rect x="595.333" y="1168" width="425.333" height="28" fill="#64748b" opacity=".22" />
+  <g>
+    <title>Event 3: event=3000ms, arrival=3000ms, value=2</title>
+    <line x1="286" y1="1177" x2="286" y2="1187" stroke="#c084fc" stroke-width="1" />
+    <circle cx="286" cy="1177" r="3" fill="#c084fc" />
+    <rect x="283" y="1184" width="6" height="6" fill="#c084fc" />
+  </g>
+  <g>
+    <title>Event 6: event=8000ms, arrival=22000ms, value=9</title>
+    <line x1="479.333" y1="1177" x2="1020.667" y2="1187" stroke="#c084fc" stroke-width="1" />
+    <circle cx="479.333" cy="1177" r="3" fill="#c084fc" />
+    <rect x="1017.667" y="1184" width="6" height="6" fill="#c084fc" />
+  </g>
+  <g>
+    <title>Event 9: event=27000ms, arrival=27000ms, value=8</title>
+    <line x1="1214" y1="1177" x2="1214" y2="1187" stroke="#c084fc" stroke-width="1" />
+    <circle cx="1214" cy="1177" r="3" fill="#c084fc" />
+    <rect x="1211" y="1184" width="6" height="6" fill="#c084fc" />
+  </g>
+  <text x="30" y="1247" class="">Watermarks</text>
+  <line x1="170" y1="1235" x2="170" y2="1410" stroke="#29384c" stroke-width="1" />
+  <text x="162" y="1428" class="">0s</text>
+  <line x1="170" y1="1410" x2="1330" y2="1410" stroke="#29384c" stroke-width="1" />
+  <text x="125" y="1414" class="">0s</text>
+  <line x1="556.667" y1="1235" x2="556.667" y2="1410" stroke="#29384c" stroke-width="1" />
+  <text x="548.667" y="1428" class="">10s</text>
+  <line x1="170" y1="1351.667" x2="1330" y2="1351.667" stroke="#29384c" stroke-width="1" />
+  <text x="125" y="1355.667" class="">10s</text>
+  <line x1="943.333" y1="1235" x2="943.333" y2="1410" stroke="#29384c" stroke-width="1" />
+  <text x="935.333" y="1428" class="">20s</text>
+  <line x1="170" y1="1293.333" x2="1330" y2="1293.333" stroke="#29384c" stroke-width="1" />
+  <text x="125" y="1297.333" class="">20s</text>
+  <line x1="1330" y1="1235" x2="1330" y2="1410" stroke="#29384c" stroke-width="1" />
+  <text x="1322" y="1428" class="">30s</text>
+  <line x1="170" y1="1235" x2="1330" y2="1235" stroke="#29384c" stroke-width="1" />
+  <text x="125" y="1239" class="">30s</text>
+  <path d="M 750 1340 H 788.667 V 1340 H 1020.667 V 1340 H 1059.333 V 1340 H 1098 V 1340 H 1136.667 V 1281.667 H 1175.333 V 1281.667 H 1214 V 1281.667 H 1330" fill="none" stroke="#60a5fa" stroke-width="1" />
+  <path d="M 788.667 1334.167 H 1020.667 V 1334.167 H 1059.333 V 1334.167 H 1098 V 1334.167 H 1136.667 V 1334.167 H 1175.333 V 1275.833 H 1214 V 1275.833 H 1330" fill="none" stroke="#fbbf24" stroke-width="1" />
+  <path d="M 286 1410 H 479.333 V 1410 H 518 V 1410 H 556.667 V 1410 H 595.333 V 1410 H 750 V 1410 H 788.667 V 1410 H 1020.667 V 1380.833 H 1059.333 V 1380.833 H 1098 V 1380.833 H 1136.667 V 1380.833 H 1175.333 V 1380.833 H 1214 V 1270 H 1330" fill="none" stroke="#c084fc" stroke-width="1" />
+  <path d="M 556.667 1410 H 750 V 1340 H 1214 V 1281.667 H 1330" fill="none" stroke="#34d399" stroke-width="3" />
+  <text x="30" y="1470" class="">Window output</text>
+  <line x1="170" y1="1465" x2="1330" y2="1465" stroke="#334155" stroke-width="1" />
+  <line x1="750" y1="1450" x2="750" y2="1475" stroke="#34d399" stroke-width="3">
+    <title>[0,10)s v1: sum=14, count=3, emitted at 15000ms</title>
+  </line>
+  <line x1="1020.667" y1="1450" x2="1020.667" y2="1475" stroke="#f472b6" stroke-width="3">
+    <title>[0,10)s v2: sum=23, count=4, emitted at 22000ms</title>
+  </line>
+  <line x1="1214" y1="1450" x2="1214" y2="1475" stroke="#34d399" stroke-width="3">
+    <title>[10,20)s v1: sum=7, count=2, emitted at 27000ms</title>
+  </line>
+  <line x1="1330" y1="1450" x2="1330" y2="1475" stroke="#34d399" stroke-width="3">
+    <title>[20,30)s v1: sum=15, count=3, emitted at 30000ms</title>
+  </line>
+  <text x="170" y="1505" class="">Green = first emission; pink = late update. Completion at 30s flushes remaining state (terminal watermark omitted).</text>
+</svg>
