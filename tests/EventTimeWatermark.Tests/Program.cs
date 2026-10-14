@@ -19,4 +19,25 @@ foreach (string name in Scenarios.Names)
     Check(scenario.Schedule().Length == scenario.Events.Count, $"Schedule conservation: {name}");
     Check(Reference.Compute(scenario).Sum(w => w.Count) == scenario.Events.Count, $"Reference conservation: {name}");
 }
+foreach (var strategy in Enum.GetValues<Strategy>())
+{
+    var result = Simulator.Run(Scenarios.Create("ordered"), new(strategy));
+    Check(result.FinalAccuracy.MismatchedWindows == 0, $"Ordered baseline: {strategy}");
+}
+var processing = Simulator.Run(boundary, new(Strategy.ProcessingTime));
+Check(processing.FinalAccuracy.MismatchedWindows == 2 && processing.FinalAccuracy.AbsoluteSumError == 20,
+    "Arrival-time aggregation must demonstrate wrong windows");
+var shared = Simulator.Run(Scenarios.Create("skew"), new(Strategy.SharedWatermark));
+var partitioned = Simulator.Run(Scenarios.Create("skew"), new(Strategy.PartitionWatermarks));
+Check(shared.Metrics.DiscardedEvents == 1 && shared.FinalAccuracy.AbsoluteSumError == 9, "Fast source advances shared watermark");
+Check(partitioned.Metrics.DiscardedEvents == 0 && partitioned.FinalAccuracy.MismatchedWindows == 0, "Partition minimum protects slow source");
+foreach (var strategy in Enum.GetValues<Strategy>())
+foreach (string name in Scenarios.Names)
+{
+    var result = Simulator.Run(Scenarios.Create(name), new(strategy));
+    var marks = result.Trace.Where(t => t.Kind == "watermark").Select(t => t.WatermarkMs!.Value).ToArray();
+    Check(marks.SequenceEqual(marks.Order()), $"Monotonic watermark: {name}/{strategy}");
+    Check(result.Metrics.Events == result.Metrics.AggregateUpdates + result.Metrics.DiscardedEvents, "Event accounting");
+    Check(result.Metrics.MaxBufferedEvents == 0, "Incremental aggregation requires no event buffering");
+}
 Console.WriteLine($"Passed {assertions} assertions.");
